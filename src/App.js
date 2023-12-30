@@ -1,4 +1,37 @@
 import { useState } from "react";
+import flowers from "./images/flowers.png";
+
+function NavLogo() {
+    return (
+        <nav className="nav-logo">
+          <img src={flowers} alt="flowers"/>
+        </nav>
+    )
+}
+
+function NavFiller() {
+  return <nav className="nav-filler"></nav>
+}
+
+function NavButton() {
+  return <nav className="nav-button"></nav>
+}
+
+function NavBar() {
+  return (
+    <>
+      <nav className="nav-bar">
+        <NavLogo/>
+        <NavFiller/>
+        <NavFiller/>
+        <NavFiller/>
+        <NavFiller/>
+        <NavButton/>
+        <NavButton/>
+      </nav>
+    </>
+  )
+}
 
 function Square({ value, onSquareClick }) {
   return (
@@ -82,6 +115,8 @@ export default function Game() {
   });
 
   return (
+    <div className="app">
+      <NavBar/>
     <div className="game">
       <div className="game-board">
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
@@ -89,6 +124,7 @@ export default function Game() {
       <div className="game-info">
         <ol>{moves}</ol>
       </div>
+    </div>
     </div>
   );
 }
